@@ -1,21 +1,20 @@
 {
   "pages": [
-		"pages/scan/scan",
-		"pages/me/me",
-		"pages/index/index",
+    "pages/scan/scan",
+    "pages/me/me",
+    "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
     "pages/chooseLib/chooseLib"
-    
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "覆膜支架",
+    "navigationBarTitleText": "覆膜支架半成品预装记录",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -34,5 +33,6 @@
         "selectedIconPath": "images/meS.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
