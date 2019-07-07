@@ -1,0 +1,28 @@
+
+<!-- <button style="margin-top:50px;" bindtap="getQRCode">扫一扫</button>
+<view>{{ qRCodeMsg }}</view>
+<view class="uploader-text" bindtap="doUpload">
+      <text>上传图片</text>
+</view> -->
+<view class="major">
+<view class="main">
+  <view class="scanview">
+      <image src="../../images/scan.png" class="scanimg" bindtap="getQRCode"></image>
+  </view>
+	<view class="desc" wx:if="{{show}}">
+		<text>使用步骤：</text>
+		<text>1、点击上方扫码按钮扫描商品对应的二维码，待二维码信息显示表示扫码成功；</text>
+		<text>2、点击上传图片，拍摄与二维码对应的商品图片（最终展示的商品图片）;</text>
+		<text>3.上传成功后系统将在后台管理平台（小程序云开发后台）生成一张以该二维码信息命名的图片，用户可登录查看该图片；</text>
+	</view>
+	<view class="uploader" wx:if="{{!show}}">
+				<view class="uploader-text" bindtap="doUpload">
+						<view class="wenan">小盆子啊，你刚刚扫的二维码信息为：</view>
+						<view class="coderesult">{{ qRCodeMsg }}</view>
+				</view>
+	</view>
+	<view class="shanngchuan" wx:if="{{uploadimg}}">
+		<button  bindtap="doUpload" class="scswzp">上传实物照片</button>
+	</view>
+</view>
+</view>
