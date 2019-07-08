@@ -1,22 +1,21 @@
 
-<!-- <button style="margin-top:50px;" bindtap="getQRCode">扫一扫</button>
-<view>{{ qRCodeMsg }}</view>
-<view class="uploader-text" bindtap="doUpload">
-      <text>上传图片</text>
-</view> -->
-<view class="major">
+<view class="getauthorrization" wx:if="{{!authorization}}">
+    <button type="primary" class="wechatauth" open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">微信授权</button>
+</view>
+<view class="major" wx:if="{{authorization}}">
 <view class="main">
   <view class="scanview">
-      <image src="../../images/scan.png" class="scanimg" bindtap="getQRCode"></image>
+      <image src="{{avatarUrl}}" class="scanimg" bindtap="getQRCode"></image>
   </view>
 	<view class="desc" wx:if="{{show}}">
 		<text>使用步骤：</text>
-		<text>1、点击上方扫码按钮扫描商品对应的条形码，待二维码信息显示表示扫码成功；</text>
+		<text>1、点击上方你的头像扫描商品对应的条形码，待二维码信息显示表示扫码成功；</text>
 		<text>2、点击上传图片，拍摄与二维码对应的商品图片（最终展示的商品图片）;</text>
 		<text>3.上传成功后系统将在后台管理平台（小程序云开发后台）生成一张以该二维码信息命名的图片，用户可登录查看该图片；</text>
     <view style="height:30rpx"></view>
     <text style="color:red">说明：</text>
-    <text>上图扫码图标只用来识别条形码,若发现条形码识别有误，则点击上图重新扫码即可.</text>
+    <text>上图你的头像只用来识别条形码,若发现条形码识别有误，则点击你的头像重新扫码即可.</text>
 	</view>
 	<view class="uploader" wx:if="{{showcode}}">
 				<view class="uploader-text" bindtap="doUpload">

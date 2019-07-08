@@ -1,6 +1,6 @@
 {
 	"miniprogramRoot": "miniprogram/",
-	"cloudfunctionRoot": "cloudfunctions/",
+	"cloudfunctionRoot": "cloudfunctions",
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
@@ -17,7 +17,7 @@
 			"outputPath": ""
 		}
 	},
-	"appid": "wx9b54b9e291e2a9dc",
+	"appid": "wx248030d15b0b3205",
 	"projectname": "photoZ",
 	"libVersion": "2.7.2",
 	"simulatorType": "wechat",

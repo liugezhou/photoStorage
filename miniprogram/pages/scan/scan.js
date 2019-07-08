@@ -4,12 +4,22 @@ Page({
    * 页面的初始数据
    */
   data: {
+    authorization:false,
     qRCodeMsg: '未识别，请重新扫码！',
 		show:true,
 		uploadimg:false,
     showcode:false,
     imagePath: '',
+    avatarUrl:'',
     finalview:false
+  },
+  onGetUserInfo: function (e) {
+    if (e.detail.userInfo) {
+      this.setData({
+        authorization:true,
+        avatarUrl: e.detail.userInfo.avatarUrl
+      })
+    }
   },
   getQRCode: function () {
     var _this = this;
@@ -90,6 +100,22 @@ Page({
 			})
 			return
 		}
+    // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              this.setData({
+                authorization: true,
+                avatarUrl: res.userInfo.avatarUrl
+              })
+            }
+          })
+        }
+      }
+    })
   },
 
   /**
