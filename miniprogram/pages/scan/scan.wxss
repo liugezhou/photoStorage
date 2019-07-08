@@ -54,3 +54,10 @@ text{
 	background-color:rgb(15, 82, 126);
 	color:white;
 }
+.preimg{
+  margin-top:30rpx;
+}
+.imgpre{
+  width:100%;
+  height:500rpx;
+}

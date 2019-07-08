@@ -6,23 +6,23 @@ Page({
   data: {
     qRCodeMsg: '未识别，请重新扫码！',
 		show:true,
-		uploadimg:false
+		uploadimg:false,
+    showcode:false,
+    imagePath: '',
+    finalview:false
   },
   getQRCode: function () {
     var _this = this;
-		console.log('nice')
     wx.scanCode({        //扫描API
       success: function (res) {
         console.log(res);    //输出回调信息
         _this.setData({
           qRCodeMsg: res.result,
 					show:false,
+          showcode:true,
+          finalview:false,
 					uploadimg:true
         });
-        wx.showToast({
-          title: '成功',
-          duration: 2000
-        })
       }
     })
   },
@@ -35,7 +35,6 @@ Page({
       sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
       success: function (res) {
-        console.log(res)
         wx.showLoading({
           title: '上传中',
         })
@@ -54,18 +53,17 @@ Page({
 						})
 						_this.setData({
 							qRCodeMsg: "未识别，请重新扫码！",
-							show: true,
-							uploadimg: false
+							uploadimg: false,
+              finalview: true,
+              showcode:false
 						});
             console.log('[上传文件] 成功：', res)
-
-            // app.globalData.fileID = res.fileID
-            // app.globalData.cloudPath = cloudPath
-            // app.globalData.imagePath = filePath
-            // wx.navigateTo({
-            //   url: '../storageConsole/storageConsole'
-            // })
-						
+            _this.setData({
+              imagePath: filePath
+            })
+            //  app.globalData.fileID = res.fileID
+            //  app.globalData.cloudPath = cloudPath
+            //  app.globalData.imagePath = filePath
           },
           fail: e => {
             console.error('[上传文件] 失败：', e)

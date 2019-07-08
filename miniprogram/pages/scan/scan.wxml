@@ -11,18 +11,29 @@
   </view>
 	<view class="desc" wx:if="{{show}}">
 		<text>使用步骤：</text>
-		<text>1、点击上方扫码按钮扫描商品对应的二维码，待二维码信息显示表示扫码成功；</text>
+		<text>1、点击上方扫码按钮扫描商品对应的条形码，待二维码信息显示表示扫码成功；</text>
 		<text>2、点击上传图片，拍摄与二维码对应的商品图片（最终展示的商品图片）;</text>
 		<text>3.上传成功后系统将在后台管理平台（小程序云开发后台）生成一张以该二维码信息命名的图片，用户可登录查看该图片；</text>
+    <view style="height:30rpx"></view>
+    <text style="color:red">说明：</text>
+    <text>上图扫码图标只用来识别条形码,若发现条形码识别有误，则点击上图重新扫码即可.</text>
 	</view>
-	<view class="uploader" wx:if="{{!show}}">
+	<view class="uploader" wx:if="{{showcode}}">
 				<view class="uploader-text" bindtap="doUpload">
-						<view class="wenan">小盆子啊，你刚刚扫的二维码信息为：</view>
+						<view class="wenan">您刚刚扫的二维码信息为：</view>
 						<view class="coderesult">{{ qRCodeMsg }}</view>
 				</view>
 	</view>
-	<view class="shanngchuan" wx:if="{{uploadimg}}">
+  <view class="shanngchuan" wx:if="{{uploadimg}}">
 		<button  bindtap="doUpload" class="scswzp">上传实物照片</button>
 	</view>
+  <view wx:if="{{finalview}}">
+    <view class="uploader-text" >
+        <text>实物照片上传成功:</text>
+    </view>
+    <view class="preimg" >
+      <image src="{{imagePath}}" class="imgpre"></image>
+    </view>
+  </view>
 </view>
 </view>
