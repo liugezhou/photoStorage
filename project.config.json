@@ -1,6 +1,6 @@
 {
 	"miniprogramRoot": "miniprogram/",
-	"cloudfunctionRoot": "cloudfunctions",
+	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
@@ -43,9 +43,10 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide",
-					"query": ""
+					"name": "pages/me/me",
+					"pathName": "pages/me/me",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

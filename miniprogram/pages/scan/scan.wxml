@@ -30,7 +30,7 @@
     <view class="uploader-text" >
         <text>实物照片上传成功:</text>
     </view>
-    <view class="preimg" >
+    <view class="preimg" bindtap="viewall">
       <image src="{{imagePath}}" class="imgpre"></image>
     </view>
   </view>

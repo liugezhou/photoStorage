@@ -1,3 +1,4 @@
+var currentImgfileID="";
 Page({
 
   /**
@@ -22,6 +23,7 @@ Page({
     }
   },
   getQRCode: function () {
+    
     var _this = this;
     wx.scanCode({        //扫描API
       success: function (res) {
@@ -40,6 +42,7 @@ Page({
   doUpload: function () {
     // 选择图片
     var _this =this
+    const db = wx.cloud.database()
     wx.chooseImage({
       count: 1,
       sizeType: ['compressed'],
@@ -71,9 +74,16 @@ Page({
             _this.setData({
               imagePath: filePath
             })
-            //  app.globalData.fileID = res.fileID
-            //  app.globalData.cloudPath = cloudPath
-            //  app.globalData.imagePath = filePath
+            currentImgfileID = filePath
+            //将图片的一些信息存到数据库中去
+            db.collection('fileid').add({
+              data: {
+                filePath: filePath,
+                cloudPath: cloudPath,
+                fileid: res.fileID
+              }
+            })
+            
           },
           fail: e => {
             console.error('[上传文件] 失败：', e)
@@ -88,6 +98,13 @@ Page({
       fail: e => {
         console.error(e)
       }
+    })
+  },
+  //全屏查看照片
+  viewall: function(){
+    wx.previewImage({
+      current: currentImgfileID, // 当前显示图片的http链接
+      urls: [currentImgfileID] // 需要预览的图片http链接列表
     })
   },
   /**

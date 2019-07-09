@@ -1,1 +1,10 @@
-/* pages/me/me.wxss */
+.getauthorrization{
+  width:80%;
+  position: fixed;
+  top:0;
+  bottom:0;
+  left:10%;
+}
+.addone{
+  margin-top:100rpx;
+}

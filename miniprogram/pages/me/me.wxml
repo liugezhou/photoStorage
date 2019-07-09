@@ -1,2 +1,8 @@
-<!--pages/me/me.wxml-->
-<text>这里将展示我的模块，暂不开发</text>
+
+<view class="getauthorrization" >
+    <button type="primary" class="addone" bindtap="addone">操作数据库add第一种方式</button>
+    <button type="primary" class="addone" bindtap="addone2">操作数据库add的Promise方式</button>
+    <button type="primary" class="addone" bindtap="query">查找数据库中某条数据（doc）</button>
+    <button type="primary" class="addone" bindtap="query2">查找数据库中多条数据（where）</button>
+     <button type="primary" class="addone" bindtap="query3">获取一个集合的数据</button>
+</view>
