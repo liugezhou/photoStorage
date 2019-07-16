@@ -33,7 +33,7 @@ Page({
       success: function(res){
         wx.showToast({
           icon: 'success',
-          title: '上传成功',
+          title: 'add添加数据成功',
         })
       }
     })
@@ -55,7 +55,7 @@ Page({
       }
     }).then(res => {
         wx.showToast({
-          title: 'Pormise添加成功',
+          title: '',
         })
     })
   },
@@ -86,6 +86,11 @@ Page({
       }
     })
     
+  },
+  gocloudfunction: function(){
+    wx.navigateTo({
+      url: './cloudfunction/cloudfunction',
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

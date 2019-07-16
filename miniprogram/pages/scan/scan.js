@@ -1,4 +1,5 @@
 var currentImgfileID="";
+var downloadFileID="";
 Page({
 
   /**
@@ -53,7 +54,6 @@ Page({
         })
 
         const filePath = res.tempFilePaths[0]
-
         // 上传图片
         const cloudPath = _this.data.qRCodeMsg + filePath.match(/\.[^.]+?$/)[0]
         wx.cloud.uploadFile({
@@ -71,6 +71,7 @@ Page({
               showcode:false
 						});
             console.log('[上传文件] 成功：', res)
+            downloadFileID = res.fileID
             _this.setData({
               imagePath: filePath
             })
@@ -100,12 +101,22 @@ Page({
       }
     })
   },
-  //全屏查看照片
+  
   viewall: function(){
-    wx.previewImage({
-      current: currentImgfileID, // 当前显示图片的http链接
-      urls: [currentImgfileID] // 需要预览的图片http链接列表
+    //下载文件
+    wx.cloud.downloadFile({
+      fileID: downloadFileID, // 文件 ID
+      success: res => {
+        // 返回临时文件路径
+        console.log(res.tempFilePath)
+      },
+      fail: console.error
     })
+    //全屏查看照片
+    // wx.previewImage({
+    //   current: currentImgfileID, // 当前显示图片的http链接
+    //   urls: [currentImgfileID] // 需要预览的图片http链接列表
+    // })
   },
   /**
    * 生命周期函数--监听页面加载
